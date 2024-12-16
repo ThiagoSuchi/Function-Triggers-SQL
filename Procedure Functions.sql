@@ -60,3 +60,15 @@ end //
 DELIMITER ; 
 
 select calcula_imposto_case(6000);
+
+-- Criando a função e interagindo com o banco de dados biblioteca
+create function valorLivros(a decimal(10,2), b int)
+returns int
+deterministic
+return a * b;
+
+select l.titulo, valorLivros(l.preco, 10) as 'Preço por unidade'
+from livros l
+where l.numero = 32176500;
+
+select * from livros;
