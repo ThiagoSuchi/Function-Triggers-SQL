@@ -24,4 +24,9 @@ DELIMITER ;
 select*from produto;
 select*from historico_preco_produto;
 
+select h.data_modificacao, h.id_produto, p.nome_Produto, h.valor_anterior, h.valor_novo
+from produto p
+inner join historico_preco_produto h
+on p.idProduto = h.id_Produto;
+
 show triggers;
